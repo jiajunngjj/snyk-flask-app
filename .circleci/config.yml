@@ -12,11 +12,11 @@ jobs:
   snyk_code_test:
     docker:
     - image: snyk/snyk-cli:npm
-    working_directory: /tmp
     steps:
     - checkout
     - run:
         command: | 
+          mkdir /tmp
           snyk auth $SNYK_TOKEN
           snyk code test || true
           npm install -g snyk snyk-to-html
