@@ -20,13 +20,11 @@ jobs:
           snyk code test || true
   snyk_oss_test:
     docker:
-    - image: cimg/python:3.10.8
+    - image: snyk/snyk-cli:python-3.6
     steps:
     - checkout
     - run:
         command: |
-          npm install -g npm@latest
-          npm install -g snyk
           snyk auth $SNYK_TOKEN
           pip install -r requirements.txt
           snyk test --command=python3 || true
