@@ -12,12 +12,21 @@ jobs:
   snyk_code_test:
     docker:
     - image: snyk/snyk-cli:npm
+    working_directory: /tmp
     steps:
     - checkout
     - run:
         command: | 
           snyk auth $SNYK_TOKEN
           snyk code test || true
+          npm install -g snyk snyk-to-html
+          snyk code test --sarif-file-output=results.sarif
+          RESULT=$?
+          snyk-to-html -o > /tmp/results-code.html < results.sarif
+          exit $RESULT
+    - store_artifacts:
+        path: /tmp/results-code.html
+        destination: artifact-file
   snyk_oss_test:
     docker:
     - image: cimg/python:3.6.15
