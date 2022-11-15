@@ -1,5 +1,5 @@
-FROM python:3.6
-#FROM python:3.10-bullseye
+#FROM python:3.6
+FROM python:3.10-bullseye
 
 # By default, the app uses an internal sqlite db
 # Use env variables to connect to an external SQL engine, e.g. MySQL
