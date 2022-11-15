@@ -19,10 +19,7 @@ jobs:
           snyk auth $SNYK_TOKEN
           snyk code test || true
           npm install -g snyk snyk-to-html
-          snyk code test --sarif-file-output=results.sarif
-          RESULT=$?
-          snyk-to-html -o > /tmp/results-code.html < results.sarif
-          exit $RESULT
+          snyk code test --json | snyk-to-html -o /tmp/results-code.html
     - store_artifacts:
         path: /tmp/results-code.html
         destination: artifact-file
