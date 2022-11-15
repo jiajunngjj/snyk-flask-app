@@ -16,7 +16,6 @@ jobs:
     - checkout
     - run:
         command: | 
-          mkdir /tmp
           snyk auth $SNYK_TOKEN
           snyk code test || true
           npm install -g snyk snyk-to-html
