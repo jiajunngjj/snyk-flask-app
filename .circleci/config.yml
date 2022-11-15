@@ -20,7 +20,7 @@ jobs:
           snyk code test || true
   snyk_oss_test:
     docker:
-    - image: snyk/snyk-cli:npm
+    - image: snyk/snyk-cli:python-3.6
     steps:
     - checkout
     - run:
