@@ -57,7 +57,6 @@ jobs:
           TAG=0.1.<< pipeline.number >>
           snyk auth $SNYK_TOKEN
           snyk container test jiajunngjj/flask-polling-app:$TAG --file=./Dockerfile || true
-          snyk container test jiajunngjj/flask-polling-app:$TAG --file=./Dockerfile --json | snyk-to-html -o /tmp/results-container.html || true
     - store_artifacts:
         path: /tmp/results-container.html
         destination: snyk-container-result
