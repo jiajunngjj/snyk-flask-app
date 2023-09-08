@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.12.0rc1
 #FROM python:3.10-bullseye
 
 # By default, the app uses an internal sqlite db
