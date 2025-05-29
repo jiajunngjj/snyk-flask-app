@@ -4,5 +4,5 @@ mysqlclient
 Django==1.6.1
 #Django==3.2.14
 python-etcd==0.4.5
-Django-Select2==6.0.1 
+Django-Select2==8.4.1 
 irc==16.2 
